@@ -1,0 +1,41 @@
+version: '2'
+services:
+
+  master:
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+    volumes:
+      - ./data/mysql-master:/var/lib/mysql/
+      - ./config/mysql-master/my.cnf:/etc/mysql/my.cnf
+      - ./set-replica-master.sh:/set-replica-master.sh
+
+  slave-1:
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+    volumes:
+      - ./data/mysql-slave-1:/var/lib/mysql/
+      - ./config/mysql-slave-1/my.cnf:/etc/mysql/my.cnf
+      - ./set-replica-slave.sh:/set-replica-slave.sh
+
+  slave-2:
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+    volumes:
+      - ./data/mysql-slave-2:/var/lib/mysql/
+      - ./config/mysql-slave-2/my.cnf:/etc/mysql/my.cnf
+      - ./set-replica-slave.sh:/set-replica-slave.sh
+
+#  connector:
+#    image: mysql:5.7.15
+#    environment:
+#      - "MYSQL_SLAVE_PASSWORD=root"
+#      - "MYSQL_MASTER_PASSWORD=root"
+#      - "MYSQL_ROOT_PASSWORD=root"
+#      - "MYSQL_REPLICATION_USER=replication"
+#      - "MYSQL_REPLICATION_PASSWORD=replication"
+#    volumes:
+#      - ./mysql_connector.sh:/tmp/mysql_connector.sh
+#    command: /bin/bash -x /tmp/mysql_connector.sh
