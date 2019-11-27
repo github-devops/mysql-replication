@@ -1,2 +1,5 @@
 .idea/
 data/
+scripts/slave-1/sql/.bash_history
+scripts/slave-2/sql/.bash_history
+scripts/master/sql/.bash_history

@@ -8,7 +8,7 @@ services:
     volumes:
       - ./data/master:/var/lib/mysql/
       - ./config/master/my.cnf:/etc/mysql/my.cnf
-      - ./scripts/master/sql/set-replica-master.sh:/set-replica-master.sh
+      - ./scripts/master/sql:/root
 
   slave-1:
     image: mysql:5.7
@@ -17,7 +17,7 @@ services:
     volumes:
       - ./data/slave-1:/var/lib/mysql/
       - ./config/slave-1/my.cnf:/etc/mysql/my.cnf
-      - ./scripts/slave-1/sql/set-replica-slave.sh:/set-replica-slave.sh
+      - ./scripts/slave-1/sql:/root
 
   slave-2:
     image: mysql:5.7
@@ -26,4 +26,4 @@ services:
     volumes:
       - ./data/slave-2:/var/lib/mysql/
       - ./config/slave-2/my.cnf:/etc/mysql/my.cnf
-      - ./scripts/slave-2/sql/set-replica-slave.sh:/set-replica-slave.sh
+      - ./scripts/slave-2/sql:/root
