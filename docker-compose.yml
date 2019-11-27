@@ -15,8 +15,8 @@ services:
     environment:
       - "MYSQL_ROOT_PASSWORD=root"
     volumes:
-      - ./data/mysql-slave-1:/var/lib/mysql/
-      - ./config/mysql-slave-1/my.cnf:/etc/mysql/my.cnf
+      - ./data/slave-1:/var/lib/mysql/
+      - ./config/slave-1/my.cnf:/etc/mysql/my.cnf
       - ./scripts/slave-1/sql/set-replica-slave.sh:/set-replica-slave.sh
 
   slave-2:
@@ -24,6 +24,6 @@ services:
     environment:
       - "MYSQL_ROOT_PASSWORD=root"
     volumes:
-      - ./data/mysql-slave-2:/var/lib/mysql/
-      - ./config/mysql-slave-2/my.cnf:/etc/mysql/my.cnf
-      - ./scripts/slave-1/sql/set-replica-slave.sh:/set-replica-slave.sh
+      - ./data/slave-2:/var/lib/mysql/
+      - ./config/slave-2/my.cnf:/etc/mysql/my.cnf
+      - ./scripts/slave-2/sql/set-replica-slave.sh:/set-replica-slave.sh
