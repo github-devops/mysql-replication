@@ -27,4 +27,3 @@ mysql -uroot -proot -e "INSERT INTO playground.equipment (type, quant, color) VA
 
 
 mysql -uroot -proot -e "SELECT * FROM playground.equipment;"
-
