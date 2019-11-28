@@ -12,7 +12,7 @@ mysql -e "CREATE DATABASE test_repl;"
 
 # Затем настройте group_replication_recovery, чтобы использовать новую учётную запись.
 # Это позволить всем серверам группы пройти аутентификацию.
-mysql -e "CHANGE MASTER TO MASTER_USER='repl', MASTER_PASSWORD='u8NqEfKU3MZV' FOR CHANNEL 'group_replication_recovery';"
+mysql -e "CHANGE MASTER TO MASTER_USER='repl', MASTER_PASSWORD='u8NqEfKU3MZV' FOR CHANNEL 'group_replication';"
 #mysql -e "INSTALL PLUGIN group_replication SONAME 'group_replication.so';"#!/bin/bash
 
 #Запуск группы репликации
