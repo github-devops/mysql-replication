@@ -1,11 +1,11 @@
 #!/bin/bash
 
+mysql -e "CHANGE MASTER TO MASTER_HOST='master', MASTER_USER='repl', MASTER_PASSWORD='u8NqEfKU3MZV' FOR CHANNEL 'group_replication_recovery';"
+
 #Запуск остальных нод
-mysql -uroot -proot -e  "START GROUP_REPLICATION;"
+mysql -e  "START GROUP_REPLICATION;"
 
 #Запросите список членов группы репликации
-mysql -uroot -proot -e  "SELECT * FROM performance_schema.replication_group_members;"
+mysql -e  "SELECT * FROM performance_schema.replication_group_members;"
 
-mysql -uroot -proot -e "SELECT * FROM replica_test_db.equipment;"
-
-mysql -uroot -proot -e "SHOW SLAVE STATUS;"
+mysql -e "SHOW SLAVE STATUS;"
